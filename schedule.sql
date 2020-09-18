@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Сен 14 2020 г., 12:13
+-- Время создания: Сен 18 2020 г., 17:51
 -- Версия сервера: 10.3.22-MariaDB
 -- Версия PHP: 7.1.33
 
@@ -38,8 +38,7 @@ CREATE TABLE `classroom` (
 --
 
 INSERT INTO `classroom` (`classroom_id`, `name`, `active`) VALUES
-(1, 'Математика №16', 1),
-(3, 'Русский язык №12', 1);
+(1, '2314', 1);
 
 -- --------------------------------------------------------
 
@@ -102,12 +101,7 @@ CREATE TABLE `gruppa` (
 --
 
 INSERT INTO `gruppa` (`gruppa_id`, `name`, `special_id`, `date_begin`, `date_end`) VALUES
-(1, 'П-17-1', 5, '2017-09-01', '2021-07-01'),
-(2, 'С-17-2', 3, '2017-09-01', '2021-07-01'),
-(3, 'ИС-19-3', 1, '2019-09-01', '2023-07-01'),
-(4, 'Э-16-4', 4, '2016-09-01', '2020-07-01'),
-(5, 'Т-15-5', 6, '2015-09-01', '2019-07-01'),
-(6, 'Тест', 2, '2020-09-01', '2024-07-01');
+(1, 'П-17-42б', 5, '2016-05-17', '2020-01-15');
 
 -- --------------------------------------------------------
 
@@ -150,7 +144,7 @@ CREATE TABLE `lesson_plan` (
 --
 
 INSERT INTO `lesson_plan` (`lesson_plan_id`, `gruppa_id`, `subject_id`, `user_id`) VALUES
-(1, 1, 1, 11);
+(1, 1, 1, 3);
 
 -- --------------------------------------------------------
 
@@ -211,17 +205,6 @@ CREATE TABLE `schedule` (
   `classroom_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Дамп данных таблицы `schedule`
---
-
-INSERT INTO `schedule` (`schedule_id`, `lesson_plan_id`, `day_id`, `lesson_num_id`, `classroom_id`) VALUES
-(1, 1, 1, 1, 3),
-(2, 1, 2, 1, 1),
-(3, 1, 3, 1, 3),
-(4, 1, 1, 2, 3),
-(5, 1, 1, 3, 3);
-
 -- --------------------------------------------------------
 
 --
@@ -264,7 +247,7 @@ CREATE TABLE `student` (
 --
 
 INSERT INTO `student` (`user_id`, `gruppa_id`, `num_zach`) VALUES
-(10, 1, '260600');
+(4, 1, '5554235');
 
 -- --------------------------------------------------------
 
@@ -305,11 +288,7 @@ CREATE TABLE `teacher` (
 --
 
 INSERT INTO `teacher` (`user_id`, `otdel_id`) VALUES
-(2, 1),
-(5, 1),
-(11, 1),
-(3, 2),
-(4, 3);
+(3, 1);
 
 -- --------------------------------------------------------
 
@@ -335,13 +314,10 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`user_id`, `lastname`, `firstname`, `patronymic`, `login`, `pass`, `gender_id`, `birthday`, `role_id`, `active`) VALUES
-(1, 'Мунько', 'Дмитрий', 'Сергеевич', 'admin', '$2y$10$mFlJsQgNvDQ27XfADrMh8O9OQA47f2gLmqYdwGeg8SpsvdoRUX95S', 1, '2001-09-04', 1, 1),
-(2, 'Абрамов', 'Абрам', 'Абрамович', 'abram', '$2y$10$BHl5OiDb0hLyczxhS15hdu8vAAKzhPiiMA54URcF6wnHMrIhFhI62', 1, '1976-10-17', 3, 1),
-(3, 'Леонидов', 'Леонид', 'Леонидович', 'leonid', '$2y$10$7.ZY29oBKLxM.kqqZmG/i.kQvTHK81cdp8PjCjhSbwP6f6OTUTL8m', 1, '1980-06-22', 3, 1),
-(4, 'Орлова', 'София', 'Олеговна', 'sofia', '$2y$10$XgdgXCPpNOvMVDgYm.Z5ietp/JEcTuNQOgJBvf14vG8LF6q/L7BU2', 2, '1983-03-22', 3, 1),
-(5, 'Тестов', 'Тест', 'Тестович', 'test', '$2y$10$9SQcnI/HcD6d4q8jfsbAeehxgQvUDAkY31PeMhWko7wqWE2IQaacO', 1, '2020-06-04', 3, 1),
-(10, 'Студентов', 'Студент', 'Студентович', 'student', '$2y$10$UzgD/8FM8vNu4dwXiX9w5uG3Z4yca/cLDYm52rHC8XiCCfiRm49DS', 1, '2000-06-26', 4, 1),
-(11, 'Преподов', 'Препод', 'Преподович', 'prepod', '$2y$10$reTCNPxnHxO0F/9b2xErbeYFCNQJ8kws5VFPcFowr1cWpY6zraWS.', 1, '2020-06-04', 3, 1);
+(1, 'Шридтц', 'Иван', NULL, 'ivan', '12345', 1, '2001-07-30', 1, 1),
+(2, 'Гришенко', 'Ольга', NULL, 'olgaog', '12345', 2, '2000-07-10', 2, 1),
+(3, 'Симонова', 'Чэшкош', NULL, 'ooofos', '12345', 2, '2001-04-02', 3, 1),
+(4, 'Смит', 'Джон', NULL, 'stiq', '12345', 1, '2001-04-22', 4, 1);
 
 --
 -- Индексы сохранённых таблиц
